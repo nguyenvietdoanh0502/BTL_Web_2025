@@ -245,7 +245,11 @@
             gap: 20px;
         }
 
-
+        .media-grid1 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
         .genre-card {
             background-color: var(--bg-card);
             padding: 15px;
@@ -285,21 +289,30 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
             cursor: pointer;
+            
+            /* Thêm các thuộc tính Flexbox này */
+            display: flex;
+            flex-direction: column; 
+            height: 100%;
         }
         .movie-card:hover {
             transform: translateY(-5px);
         }
 
         .movie-poster-wrapper {
-            position: relative;
-            border-radius: 8px;
+            width: 100%;
+            aspect-ratio: 2/3; /* Buộc tỉ lệ 2:3 bất kể ảnh gốc size nào */
             overflow: hidden;
-            margin-bottom: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: #222; /* Màu nền giữ chỗ khi ảnh chưa load */
+            position: relative;
         }
         .movie-poster-wrapper img {
             width: 100%;
-            aspect-ratio: 2/3;
-            object-fit: cover;
+            height: 100%; /* Bắt buộc full chiều cao của wrapper */
+            object-fit: cover; /* Cắt phần thừa để vừa khung, không bị méo */
+            display: block
         }
 
         .movie-meta {
@@ -319,12 +332,19 @@
             color: #FFFFFF;
             font-size: 1rem;
             font-weight: 600;
-            text-align:start;
-            padding-left: 12px;
-            margin: 12px 0 5px 0; 
-            white-space: nowrap;
+            text-align: center;
+            margin-bottom: 12px;
+            
+            /* Kỹ thuật giới hạn 2 dòng (Line Clamp) */
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Số dòng tối đa */
+            -webkit-box-orient: vertical;
             overflow: hidden;
-            text-overflow: ellipsis;
+            
+            /* Đặt chiều cao cố định = số dòng x chiều cao dòng (line-height) */
+            /* Ví dụ: line-height 1.4rem * 2 dòng = 2.8rem */
+            line-height: 1.4rem;
+            height: 2.8rem;
         }
         .release-badge {
             background-color: #141414;
@@ -339,6 +359,7 @@
             z-index: 2;
             box-shadow: 0 4px 8px rgba(0,0,0,0.5);
             border: 1px solid #333;
+            margin-top: auto;
         }
 
 
