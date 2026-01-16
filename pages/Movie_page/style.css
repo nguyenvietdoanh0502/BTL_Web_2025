@@ -315,7 +315,17 @@
             color: var(--primary-red);
             margin-right: 4px;
         }
-
+        .movie-title {
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align:start;
+            padding-left: 12px;
+            margin: 12px 0 5px 0; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         .release-badge {
             background-color: #141414;
             color: var(--text-gray);
@@ -325,7 +335,7 @@
             border-radius: 6px;
             position: relative;
             width: 90%;
-            margin: -30px auto 15px; /* Kéo lên đè vào ảnh */
+            margin: 0 auto 10px auto;
             z-index: 2;
             box-shadow: 0 4px 8px rgba(0,0,0,0.5);
             border: 1px solid #333;
