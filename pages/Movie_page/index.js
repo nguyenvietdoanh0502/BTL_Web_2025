@@ -188,7 +188,7 @@ function renderMovieNewReleasePage(year,page){
                 const date = new Date(item.modified.time);
                 const formattedDate = date.toLocaleDateString('en-GB');
                 const thumbUrl = `${imageDomain}/uploads/movies/${item.thumb_url}`;
-                return `<div class="movie-card">
+                return `<div class="movie-card" onclick="goWatchPage('${item.slug}')">
                                 <div class="movie-poster-wrapper">
                                     <img src="${thumbUrl}" alt="Movie">
                                 </div>
@@ -269,7 +269,7 @@ function renderAllMovies(){
             const date = new Date(item.modified.time);
                 const formattedDate = date.toLocaleDateString('en-GB');
                 const thumbUrl = `${imageDomain}/uploads/movies/${item.thumb_url}`;
-                return `<div class="movie-card">
+                return `<div class="movie-card" onclick="goWatchPage('${item.slug}')">
                                 <div class="movie-poster-wrapper">
                                     <img src="${thumbUrl}" alt="Movie">
                                 </div>
@@ -346,7 +346,7 @@ function renderMustWatchGrid(imageDomain) {
     console.log(end)
     for(let i = index;i<end;i++){
         const thumbUrl = `${imageDomain}/uploads/movies/${mustWatch[i].thumb_url}`;
-        htmlContent+=`<div class="movie-card">
+        htmlContent+=`<div class="movie-card" onclick="goWatchPage('${mustWatch[i].slug}')">
                         <div class="movie-poster-wrapper">
                             <img src="${thumbUrl}" alt="Poster">
                         </div>
@@ -414,13 +414,15 @@ function renderSearchMovie(movies,imageDomain){
     }
     const htmlContent = movies.map(item=>{
         const thumb_url = `${imageDomain}/uploads/movies/${item.thumb_url}`;
+        
         return `
-            <div class="search-item" onclick="window.location.href='detail.html?slug=${item.slug}'">
+            <div class="search-item" onclick="goWatchPage('${item.slug}')">
                 <img src="${thumb_url}" alt="${item.name}">
                 <div class="search-info">
                     <div class="search-title">${item.name}</div>
                     <div class="search-meta">${item.origin_name} (${item.year})</div>
                     <div class="search-meta1">${item.time}</div>
+                    <div class="search-meta2">${item.slug}</div>
                 </div>
             </div>
         `
@@ -440,3 +442,7 @@ document.addEventListener('click',(e)=>{
         searchRes.style.display = 'none';
     }
 })
+function goWatchPage(slug){
+    window.location.href = `/pages/Watch_movie_page/index.html?slug=${slug}`
+
+}

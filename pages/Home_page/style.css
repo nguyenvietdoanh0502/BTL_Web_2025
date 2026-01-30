@@ -77,7 +77,9 @@
         section {
             padding: 120px 0;
         }
-
+        .search-meta2{
+            display: none;
+       }
         header {
             position: fixed;
             top: 0;
