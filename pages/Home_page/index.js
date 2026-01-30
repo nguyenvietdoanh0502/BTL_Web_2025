@@ -134,3 +134,19 @@ genresLeft.addEventListener('click', () => {
 });
 grid1.addEventListener('scroll', updateButtons);
 getSlugData()
+
+
+function closeBanner() {
+    const banner = document.getElementById('floating-banner');
+    if (banner) {
+        banner.style.display = 'none'; 
+    }
+}
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() =>{
+        const closeBtn = document.querySelector('.btn-close-banner');
+        if (closeBtn) {
+            closeBtn.style.display = 'flex'; 
+        }
+    }, 10000);
+});
