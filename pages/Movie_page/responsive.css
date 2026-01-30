@@ -22,3 +22,8 @@
             .btn { width: 100%; justify-content: center; }
             .btn-icon { width: 100%; }
         }
+        @media (max-width: 768px) {
+            .search-box input {
+                width: 150px;
+            }
+        }
