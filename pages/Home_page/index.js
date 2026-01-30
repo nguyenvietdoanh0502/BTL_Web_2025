@@ -24,13 +24,15 @@ function renderSearchMovie(movies,imageDomain){
     }
     const htmlContent = movies.map(item=>{
         const thumb_url = `${imageDomain}/uploads/movies/${item.thumb_url}`;
+        
         return `
-            <div class="search-item" onclick="window.location.href='detail.html?slug=${item.slug}'">
+            <div class="search-item" onclick="goWatchPage('${item.slug}')">
                 <img src="${thumb_url}" alt="${item.name}">
                 <div class="search-info">
                     <div class="search-title">${item.name}</div>
                     <div class="search-meta">${item.origin_name} (${item.year})</div>
                     <div class="search-meta1">${item.time}</div>
+                    <div class="search-meta2">${item.slug}</div>
                 </div>
             </div>
         `
@@ -50,6 +52,10 @@ document.addEventListener('click',(e)=>{
         searchRes.style.display = 'none';
     }
 })
+function goWatchPage(slug){
+    window.location.href = `/pages/Watch_movie_page/index.html?slug=${slug}`
+
+}
 
 const getMovieData = async (slug) => {
     try {

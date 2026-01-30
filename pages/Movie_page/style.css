@@ -601,7 +601,9 @@
             font-size: 0.8rem;
             margin-top: 4px;
         }
-       
+       .search-meta2{
+            display: none;
+       }
 
 
 
