@@ -86,7 +86,7 @@
             width: 100%;
             background-color: rgba(20, 20, 20, 0.95);
             backdrop-filter: blur(10px);
-            z-index: 1000;
+            z-index: 997;
             padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
         }
@@ -206,7 +206,10 @@
             transform: translateY(-5px);
             border-color: var(--primary-red);
         }
-
+        .device-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-red);
+        }
         .cat-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -241,6 +244,7 @@
             padding: 40px;
             border-radius: 16px;
             border: 1px solid var(--border-color);
+            transition: transform 0.3s;
         }
 
         .device-header {
@@ -563,7 +567,15 @@
             border-color: #E50914;
             
         }
-
+        .modal-overlay {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); 
+            z-index: 998; 
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translate(-50%, -60%); }

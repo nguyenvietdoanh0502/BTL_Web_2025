@@ -144,7 +144,7 @@ function renderVideo(chapter,index){
                             height="100%"
                             src ="${src}"
                             frameborder="0"
-                            allow="encrypted-media; picture-in-picture; web-share"
+                            allow="autoplay; encrypted-media; picture-in-picture; web-share"
                             allowfullscreen>
                         </iframe>`
         }, 10000);

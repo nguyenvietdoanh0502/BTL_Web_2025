@@ -75,7 +75,7 @@ function renderMovieSlug(slug,name){
         const thumbUrl2 = `${imageDomain}/uploads/movies/${apiResult.data.items[1].thumb_url}`;
         const thumbUrl3 = `${imageDomain}/uploads/movies/${apiResult.data.items[2].thumb_url}`;
         const thumbUrl4 = `${imageDomain}/uploads/movies/${apiResult.data.items[3].thumb_url}`;
-        const boxContent = `<div class="genre-card">
+        const boxContent = `<div class="genre-card" onClick="goGenresPage('${slug}')">
                         <div class="genre-images-grid">
                             <img src="${thumbUrl1}" class="genre-img-item" alt="${slug}">
                             <img src="${thumbUrl2}" class="genre-img-item" alt="${slug}">
@@ -137,15 +137,26 @@ getSlugData()
 
 function closeBanner() {
     const banner = document.getElementById('floating-banner');
+    const overlay = document.getElementById('overlay')
     if (banner) {
         banner.style.display = 'none'; 
+        overlay.style.display = 'none';
     }
 }
 document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() =>{
-        const closeBtn = document.querySelector('.btn-close-banner');
-        if (closeBtn) {
-            closeBtn.style.display = 'flex'; 
+    const closeBtn = document.querySelector('.btn-close-banner');
+    let s = 10
+    const countDown=setInterval(()=>{
+        closeBtn.style.display = 'flex'; 
+        closeBtn.textContent = s
+        s--
+        if(s<0){
+            clearInterval(countDown);
+            closeBtn.textContent = "X";
+            closeBtn.addEventListener('click',closeBanner)
         }
-    }, 10000);
+    },1000)
 });
+function goGenresPage(slug){
+    window.location.href = `/pages/Genres_page/index.html?slug=${slug}`
+}
