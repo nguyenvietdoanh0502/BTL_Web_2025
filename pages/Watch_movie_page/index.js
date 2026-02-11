@@ -78,6 +78,7 @@ const renderPage = async(slug)=>{
         const time = " "+times[0]
         if(episodes.length>1){
             renderChapter(episodes,fullImageURL,time)
+
         }
         else{
             seasonsSection.style.display = 'none';
@@ -89,12 +90,40 @@ const renderPage = async(slug)=>{
     catch(error){
         console.log(error)
     }
-    
+}
+const chapter = document.querySelector('#movie_title2')
+function renderCurrentChapter(index){
+    let x = parseInt(index) + 1
+    const content = `Tập ${x}`
+    chapter.textContent = content
+    const currentChapter = document.querySelectorAll('.season-card')
+    currentChapter.forEach((value,index1)=>{
+        if(index1==index){
+            value.style.backgroundColor = "#262626"
+            value.onmouseenter = null; 
+            value.onmouseleave = null;
+        }
+        else{
+            value.style.backgroundColor = "#26262600"
+            value.onmouseenter = function() {
+                this.style.backgroundColor = "#1A1A1A"; 
+                this.style.cursor = "pointer"; 
+            };
+            value.onmouseleave = function() {
+                this.style.backgroundColor = "transparent"; 
+            };
+        }
+    })
 
 }
 const video = document.querySelector('#video')
 function renderVideo(chapter,index){
     video.innerHTML = ''
+    if(chapter.length>1){
+        renderCurrentChapter(index)
+        
+    }
+    
     const src = chapter[index].link_embed
     if(src==''){
         video.innerHTML = `<img src="../../asset/error.png" alt="" style="width="100%"
@@ -120,6 +149,11 @@ function renderVideo(chapter,index){
                         </iframe>`
         }, 10000);
     }
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     
 }
 const title = document.querySelector('#movie_title')
