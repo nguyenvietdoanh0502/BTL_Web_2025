@@ -54,7 +54,6 @@ document.addEventListener('click',(e)=>{
 })
 function goWatchPage(slug){
     window.location.href = `/pages/Watch_movie_page/index.html?slug=${slug}`
-
 }
 
 const getMovieData = async (slug) => {

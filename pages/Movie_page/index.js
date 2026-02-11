@@ -131,14 +131,27 @@ const hero = document.querySelector('.hero')
 const hero_title = document.querySelector('.hero-title')
 const hero_desc = document.querySelector('.hero-desc')
 
-
+const btnPlay = document.querySelector('#btn-red')
 function renderMainMovie(){
     getMovieMain().then((movies)=>{
         const imageDomain = movies.data.APP_DOMAIN_CDN_IMAGE;
-        let index = 0;
+        const thumbUrl = `${imageDomain}/uploads/movies/${movies.data.items[0].thumb_url}`;
+        hero.style.background = `linear-gradient(to top, #141414 5%, rgba(20,20,20,0.6) 60%, rgba(20,20,20,0.2) 100%), 
+                        url("${thumbUrl}")`
+        hero.style.backgroundRepeat = "no-repeat"; 
+        hero.style.backgroundSize = "cover";
+        hero.style.backgroundPosition = "center";
+        hero_title.textContent = `${movies.data.items[0].name}`
+        getMovieInfo(movies.data.items[0].slug).then((infos)=>{
+            hero_desc.textContent = infos.data.seoOnPage.descriptionHead
+            btnPlay.addEventListener('click',()=>{
+                goWatchPage(movies.data.items[0].slug)
+            })
+        })
+        let index = 1;
         setInterval(function(){
             if (index >= movies.data.items.length) {
-                index = 0;
+                index = 1;
             }
             const thumbUrl = `${imageDomain}/uploads/movies/${movies.data.items[index].thumb_url}`;
             hero.style.background = `linear-gradient(to top, #141414 5%, rgba(20,20,20,0.6) 60%, rgba(20,20,20,0.2) 100%), 
@@ -148,11 +161,13 @@ function renderMainMovie(){
             hero.style.backgroundPosition = "center";
             hero_title.textContent = `${movies.data.items[index].name}`
             getMovieInfo(movies.data.items[index].slug).then((infos)=>{
-            hero_desc.textContent = infos.data.seoOnPage.descriptionHead
+                hero_desc.textContent = infos.data.seoOnPage.descriptionHead
+                btnPlay.addEventListener('click',()=>{
+                    goWatchPage(movies.data.items[index].slug)
+                })
+            })
             index++
-        })
         },20000)
-        
     })
 }
 renderMainMovie()

@@ -422,6 +422,7 @@ header {
     padding: 20px 10px;
     border-bottom: 1px solid #262626;
     align-items: flex-start;
+    cursor: pointer;
 }
 .season-card:hover {
     background-color: #1A1A1A;
