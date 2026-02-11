@@ -44,7 +44,7 @@ function renderMovieSlug(slug,name){
         const thumbUrl2 = `${imageDomain}/uploads/movies/${apiResult.data.items[1].thumb_url}`;
         const thumbUrl3 = `${imageDomain}/uploads/movies/${apiResult.data.items[2].thumb_url}`;
         const thumbUrl4 = `${imageDomain}/uploads/movies/${apiResult.data.items[3].thumb_url}`;
-        const boxContent = `<div class="genre-card">
+        const boxContent = `<div class="genre-card" onClick="goGenresPage('${slug}')">
                         <div class="genre-images-grid">
                             <img src="${thumbUrl1}" class="genre-img-item" alt="${slug}">
                             <img src="${thumbUrl2}" class="genre-img-item" alt="${slug}">
@@ -459,5 +459,7 @@ document.addEventListener('click',(e)=>{
 })
 function goWatchPage(slug){
     window.location.href = `/pages/Watch_movie_page/index.html?slug=${slug}`
-
+}
+function goGenresPage(slug){
+    window.location.href = `/pages/Genres_page/index.html?slug=${slug}`
 }
