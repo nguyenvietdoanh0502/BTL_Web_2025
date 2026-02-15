@@ -20,7 +20,7 @@
             <nav class="nav-links">
                 <a href="/pages/Home_page/index.html" >Home</a>
                 <a href="#" class="active">Movies</a>
-                <a href="#">Support</a>
+                <a href="/pages/Support_page/index.html">Support</a>
                 <a href="#">Subscriptions</a>
             </nav>
             <div class="header-icons">
@@ -47,25 +47,25 @@
                 <button class="btn btn-red" id="btn-red"><i class="fas fa-play"></i> Play Now</button>
                 <button class="btn btn-icon"><i class="fas fa-plus"></i></button>
                 <button class="btn btn-icon"><i class="fas fa-thumbs-up"></i></button>
-                <button class="btn btn-icon"><i class="fas fa-volume-up"></i></button>
+                <button class="btn btn-icon" id="lctGenres"><i class="fas fa-volume-up"></i></button>
             </div>
         </div>
     </section>
 
     <div class="container category-group">
-        <span class="red-badge">Movies</span>
+        <span class="red-badge" >Movies</span>
         
         <div class="main-border-box">
             
             <div class="section-row">
                 <div class="section-header">
-                    <h3 class="section-title">Our Genres</h3>
+                    <h3 class="section-title" >Our Genres</h3>
                     <div class="slider-controls">
                         <button class="control-btn" id ="genres-left"><i class="fas fa-arrow-left"></i></button>
                         <button class="control-btn" id = "genres-right"><i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
-                <div class="media-grid1">
+                <div class="media-grid1" id="lctNew">
                     <!-- <div class="genre-card">
                         <div class="genre-images-grid">
                             <img src="https://via.placeholder.com/150/333" class="genre-img-item" alt="Action">
@@ -89,7 +89,7 @@
                         <button class="control-btn-right-1" id ="new-releases-right"><i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
-                <div class="media-grid">
+                <div class="media-grid" id = "lctMust">
                     <!-- <div class="movie-card">
                         <div class="movie-poster-wrapper">
                             <img src="https://via.placeholder.com/300x450" alt="Movie">
@@ -122,10 +122,10 @@
                     </div> -->
                 </div>
             </div>
-            <div class="section-row">
+            <div class="section-row" >
                 <div class="section-header">
                     <h3 class="section-title">All Movies</h3>
-                    <div class="slider-controls">
+                    <div class="slider-controls" id = 'lctAll'>
                         <button class="control-btn-left-1" id="all-movie-left"><i class="fas fa-arrow-left"></i></button>
                         <button class="control-btn-right-1" id = "all-movie-right"><i class="fas fa-arrow-right"></i></button>
                     </div>
@@ -151,7 +151,7 @@
             <div class="cta-overlay"></div>
             <div class="cta-content">
                 <h2>Start your free trial today!</h2>
-                <p>This is a clear and concise call to action that encourages users to sign up for a free trial of StreamVibe.</p>
+                <p>This is a clear and concise call to action that encourages users to sign up for a free trial of Conflict.</p>
                 <button class="btn btn-red">Start Free Trial</button>
             </div>
         </div>
@@ -163,58 +163,58 @@
                 <div class="footer-col">
                     <h4>Home</h4>
                     <ul>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Devices</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="../Home_page/index.html#categories">Categories</a></li>
+                        <li><a href="../Home_page/index.html#devices">Devices</a></li>
+                        <li><a href="../Home_page/index.html#faq">FAQ</a></li>
+                        <li><a href="../Home_page/index.html#pricing">Pricing</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Movies</h4>
                     <ul>
-                        <li><a href="#">Genres</a></li>
-                        <li><a href="#">Trending</a></li>
-                        <li><a href="#">New Release</a></li>
-                        <li><a href="#">Popular</a></li>
+                        <li><a href="../Movie_page/index.html#lctGenres">Genres</a></li>
+                        <li><a href="../Movie_page/index.html#lctNew">New Release</a></li>
+                        <li><a href="../Movie_page/index.html#lctMust">Must Watch</a></li>
+                        <li><a href="../Movie_page/index.html#lctAll">All Movies</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Shows</h4>
                     <ul>
-                        <li><a href="#">Genres</a></li>
-                        <li><a href="#">Trending</a></li>
-                        <li><a href="#">New Release</a></li>
-                        <li><a href="#">Popular</a></li>
+                        <li><a href="../Error_page/index.html">Genres</a></li>
+                        <li><a href="../Error_page/index.html">Trending</a></li>
+                        <li><a href="../Error_page/index.html">New Release</a></li>
+                        <li><a href="../Error_page/index.html">Popular</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Support</h4>
                     <ul>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="../Support_page/index.html" >Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Subscription</h4>
                     <ul>
-                        <li><a href="#">Plans</a></li>
-                        <li><a href="#">Features</a></li>
+                        <li><a href="../Error_page/index.html">Plans</a></li>
+                        <li><a href="../Error_page/index.html">Features</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Connect With Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <div style="display: flex; gap: 10px; font-size: 1.2rem;">
+                        <a href="https://www.facebook.com/HITClub.HaUI" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="../Error_page/index.html"><i class="fab fa-twitter"></i></a>
+                        <a href="../Error_page/index.html"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Conflict. All Rights Reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Terms of Use</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Cookie Policy</a>
+                <div style="display: flex; gap: 20px;">
+                    <a href="../Error_page/index.html">Terms of Use</a>
+                    <a href="../Error_page/index.html">Privacy Policy</a>
+                    <a href="../Error_page/index.html">Cookie Policy</a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,6 @@
-
+        html {
+            scroll-behavior: smooth;
+        }
         :root {
             --primary-red: #E50914;
             --bg-black: #141414;
@@ -531,6 +533,9 @@
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
             animation: fadeIn 0.5s ease-out;
+            opacity: 0; 
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out;
         }
         .floating-banner img {
             display: block;
@@ -576,11 +581,83 @@
             background-color: rgba(0, 0, 0, 0.7); 
             z-index: 998; 
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -60%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
+        #floating-banner.hien-len {
+            opacity: 1;
+            visibility: visible;
         }
+        .faq-section {
+            margin-bottom: 100px;
+        }
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.faq-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.faq-item {
+    background: transparent;
+    border-bottom: 1px solid #262626;
+    padding: 25px 0;
+    transition: all 0.3s;
+}
+.faq-item:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.faq-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-number {
+    background-color: #1F1F1F;
+    border: 1px solid #333;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 20px;
+    font-weight: 600;
+    flex-shrink: 0;
+    
+}
+
+.faq-header h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    flex-grow: 1;
+    padding-right: 15px;
+}
+
+.toggle-icon {
+    font-size: 1rem;
+    color: var(--text-white);
+}
+
+.faq-body {
+    display: none;
+    padding-top: 20px;
+    padding-left: 65px;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.faq-item.expanded .faq-number {
+    color: var(--primary-red);
+}
 
 
         

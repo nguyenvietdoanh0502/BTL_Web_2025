@@ -58,7 +58,9 @@ function goWatchPage(slug){
 
 const getMovieData = async (slug) => {
     try {
-        const response = await fetch(`https://ophim1.com/v1/api/the-loai/${slug}`);
+        const response = await fetch(`https://ophim1.com/v1/api/the-loai/${slug}
+            
+            `);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -135,13 +137,18 @@ grid1.addEventListener('scroll', updateButtons);
 getSlugData()
 
 const bannerImg = document.querySelector('#bannerImg')
+const banner = document.getElementById('floating-banner');
 function loadBanner(){
     const x =  Math.floor(Math.random() * (19 - 1 + 1)) + 0;
     bannerImg.src = `../../asset/QC/${x}.jpg`
-
+    if (bannerImg.src) { 
+        setTimeout(() => {
+            banner.classList.add('hien-len');
+        }, 500); 
+    }
 }
 function closeBanner() {
-    const banner = document.getElementById('floating-banner');
+    
     const overlay = document.getElementById('overlay')
     if (banner) {
         banner.style.display = 'none'; 
@@ -153,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = 'hidden';
     loadBanner()
     const closeBtn = document.querySelector('.btn-close-banner');
-    let s = 10
+    let s = 1
     const countDown=setInterval(()=>{
         closeBtn.style.display = 'flex'; 
         closeBtn.textContent = s
@@ -168,3 +175,91 @@ document.addEventListener("DOMContentLoaded", () => {
 function goGenresPage(slug){
     window.location.href = `/pages/Genres_page/index.html?slug=${slug}`
 }
+document.querySelectorAll('.faq-item').forEach(item => {
+    const header = item.querySelector('.faq-header');
+    header.addEventListener('click', () => {
+        const body = item.querySelector('.faq-body');
+        const icon = item.querySelector('.toggle-icon');            
+        if (body.style.display === 'block') {
+            body.style.display = 'none';
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+            item.classList.remove('expanded');
+        } else {
+            body.style.display = 'block';
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+            item.classList.add('expanded');
+        }
+    });
+});
+const planGrid = document.querySelector('.pricing-grid')
+const btnMonth = document.querySelector('#btn-monthly')
+const btnYear = document.querySelector('#btn-yearly')
+btnMonth.addEventListener('click',()=>{
+    btnMonth.style.background = '#333'
+
+    btnYear.style.background = '#33333300'
+    btnYear.style.border = 'none'
+    planGrid.innerHTML = `
+            <div class="price-card">
+                <h3>Basic Plan</h3>
+                <p>Enjoy an extensive library of movies and shows, featuring a range of content, including recently released titles.</p>
+                <div class="price">$9.99 <span>/month</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Standard Plan</h3>
+                <p>Access to a wider selection of movies and shows, including most new releases and exclusive content.</p>
+                <div class="price">$12.99 <span>/month</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Premium Plan</h3>
+                <p>Access to a widest selection of movies and shows, including all new releases and Offline Viewing.</p>
+                <div class="price">$14.99 <span>/month</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>`
+})
+btnYear.addEventListener('click',()=>{
+    btnYear.style.background = '#333'
+    btnMonth.style.background = '#33333300'
+    btnMonth.style.border = 'none'
+    planGrid.innerHTML = `
+            <div class="price-card">
+                <h3>Basic Plan</h3>
+                <p>Enjoy an extensive library of movies and shows, featuring a range of content, including recently released titles.</p>
+                <div class="price">$99.99 <span>/year</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Standard Plan</h3>
+                <p>Access to a wider selection of movies and shows, including most new releases and exclusive content.</p>
+                <div class="price">$129.99 <span>/year</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Premium Plan</h3>
+                <p>Access to a widest selection of movies and shows, including all new releases and Offline Viewing.</p>
+                <div class="price">$149.99 <span>/year</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>`
+})
