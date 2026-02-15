@@ -134,16 +134,24 @@ genresLeft.addEventListener('click', () => {
 grid1.addEventListener('scroll', updateButtons);
 getSlugData()
 
+const bannerImg = document.querySelector('#bannerImg')
+function loadBanner(){
+    const x =  Math.floor(Math.random() * (19 - 1 + 1)) + 0;
+    bannerImg.src = `../../asset/QC/${x}.jpg`
 
+}
 function closeBanner() {
     const banner = document.getElementById('floating-banner');
     const overlay = document.getElementById('overlay')
     if (banner) {
         banner.style.display = 'none'; 
         overlay.style.display = 'none';
+        document.body.style.overflow = '';
     }
 }
 document.addEventListener("DOMContentLoaded", () => {
+    document.body.style.overflow = 'hidden';
+    loadBanner()
     const closeBtn = document.querySelector('.btn-close-banner');
     let s = 10
     const countDown=setInterval(()=>{
