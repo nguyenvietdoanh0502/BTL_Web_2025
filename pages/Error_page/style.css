@@ -1,0 +1,43 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            height: 100vh;
+            width: 100%;
+            background-image: url('../../asset/error.png');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-color: #000; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; 
+            align-items: center; 
+            padding-bottom: 80px;
+        }
+        .home-btn {
+            display: inline-flex; 
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #6699ff; 
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: 600; 
+            border-radius: 8px; 
+            border: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .home-btn:hover {
+            background-color: #336699; 
+            transform: scale(1.05); 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.5); 
+        }
+        
