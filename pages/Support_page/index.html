@@ -27,7 +27,7 @@
                 <div class="header-actions">
                     <div class="search-container" style="position: relative;">
                     <div class="search-box">
-                        <input type="text" id="search-input" placeholder="Search movies...">
+                        <input type="text" id="search-input" autocomplete="off" placeholder="Search movies...">
                         <button type="button"><i class="fas fa-search"></i></button>
                     </div>
 
@@ -79,10 +79,29 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <div class="phone-input-wrapper">
-                                <div class="country-select">
-                                    <img src="https://flagcdn.com/w20/vn.png" alt="VietNam"> 
-                                    <i class="fas fa-chevron-down"></i>
+                            <div class="phone-input-wrapper" id = 'phone-input-wrapper'>
+                                <div class="country-select" id="country-select">
+                                    <div class="selected-flag">
+                                        <img src="https://flagcdn.com/w40/vn.png" alt="VN" id="current-flag"> 
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <ul class="country-dropdown" id="country-dropdown">
+                                        <li data-code="vn" data-flag="https://flagcdn.com/w40/vn.png">
+                                            <img src="https://flagcdn.com/w40/vn.png" alt="VN"> Vietnam (+84)
+                                        </li>
+                                        <li data-code="us" data-flag="https://flagcdn.com/w40/us.png">
+                                            <img src="https://flagcdn.com/w40/us.png" alt="US"> USA (+1)
+                                        </li>
+                                        <li data-code="gb" data-flag="https://flagcdn.com/w40/gb.png">
+                                            <img src="https://flagcdn.com/w40/gb.png" alt="UK"> UK (+44)
+                                        </li>
+                                        <li data-code="jp" data-flag="https://flagcdn.com/w40/jp.png">
+                                            <img src="https://flagcdn.com/w40/jp.png" alt="JP"> Japan (+81)
+                                        </li>
+                                        <li data-code="kr" data-flag="https://flagcdn.com/w40/kr.png">
+                                            <img src="https://flagcdn.com/w40/kr.png" alt="KR"> Korea (+82)
+                                        </li>
+                                    </ul>
                                 </div>
                                 <input type="tel" id="phone" placeholder="Enter Phone Number">
                             </div>
@@ -99,7 +118,7 @@
                             <input type="checkbox" id="terms">
                             <label for="terms">I agree with Terms of Use and Privacy Policy</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="button" class="btn btn-primary" id ='send'>Send Message</button>
                     </div>
                 </form>
             </div>
@@ -283,6 +302,6 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="../Support_page/index.js"></script>
 </body>
 </html>

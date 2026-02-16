@@ -148,19 +148,21 @@ function loadBanner(){
     }
 }
 function closeBanner() {
-    
-    const overlay = document.getElementById('overlay')
+    const overlay1 = document.getElementById('overlay')
     if (banner) {
         banner.style.display = 'none'; 
-        overlay.style.display = 'none';
+        overlay1.style.display = 'none';
         document.body.style.overflow = '';
     }
 }
 document.addEventListener("DOMContentLoaded", () => {
-    document.body.style.overflow = 'hidden';
+    if(!sessionStorage.getItem('daXemIntro')){
+        introOverlay.style.display = 'flex'
+        sessionStorage.setItem('daXemIntro', 'true');
+    }
     loadBanner()
     const closeBtn = document.querySelector('.btn-close-banner');
-    let s = 1
+    let s = 10
     const countDown=setInterval(()=>{
         closeBtn.style.display = 'flex'; 
         closeBtn.textContent = s
@@ -198,7 +200,6 @@ const btnMonth = document.querySelector('#btn-monthly')
 const btnYear = document.querySelector('#btn-yearly')
 btnMonth.addEventListener('click',()=>{
     btnMonth.style.background = '#333'
-
     btnYear.style.background = '#33333300'
     btnYear.style.border = 'none'
     planGrid.innerHTML = `
@@ -263,3 +264,11 @@ btnYear.addEventListener('click',()=>{
                 </div>
             </div>`
 })
+const video = document.getElementById('myVideo');
+const introOverlay = document.getElementById('intro-overlay');
+function finishIntro() {
+    introOverlay.classList.add('hidden');
+}
+video.addEventListener('ended', function() {
+    finishIntro();
+});
