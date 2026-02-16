@@ -382,7 +382,7 @@ header {
     background-color: var(--bg-dark-gray);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    overflow: hidden;
+    position: relative;
 }
 
 .phone-input-wrapper:focus-within {
@@ -390,25 +390,81 @@ header {
 }
 
 .country-select {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border-color);
+    background-color: #1a1a1a;
+    cursor: pointer;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    min-width: 80px;
+}
+.selected-flag {
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 0 15px;
-    border-right: 1px solid var(--border-color);
-    background-color: #1a1a1a;
-    cursor: pointer;
+    height: 100%;
+    width: 100%;
 }
-
 .country-select i {
     font-size: 0.8rem;
     color: var(--text-gray);
+    margin-left: auto;
 }
-
+.country-select img {
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+.country-dropdown {
+    position: absolute;
+    top: 110%; 
+    background-color: #1F1F1F;
+    border: 1px solid #333;
+    border-radius: 8px;
+    width: 220px; 
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    list-style: none;
+    padding: 5px 0;
+}
+.country-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.error{
+    border: 1px solid var(--primary-red);
+}
+.country-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #ccc;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.country-dropdown li:hover {
+    background-color: #333;
+    color: #fff;
+}
 .phone-input-wrapper input {
     border: none;
     background: transparent;
     flex-grow: 1;
     padding: 16px;
+    color: #fff;
+    outline: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 .phone-input-wrapper input:focus {
     border: none;

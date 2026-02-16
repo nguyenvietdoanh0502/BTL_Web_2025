@@ -66,3 +66,77 @@ document.addEventListener('click',(e)=>{
         searchRes.style.display = 'none';
     }
 })
+
+const countrySelect = document.querySelector('#country-select')
+const countryDropdown = document.querySelector('#country-dropdown')
+const currentFlag = document.querySelector('#current-flag')
+const listItems = countryDropdown.querySelectorAll('li')
+countrySelect.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    countryDropdown.classList.toggle('active')
+})
+listItems.forEach(item=>{
+    item.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const newFlag = item.getAttribute('data-flag')
+        currentFlag.src = newFlag
+        countryDropdown.classList.remove('active')
+    })
+})
+document.addEventListener('click',(e)=>{
+    if(!countrySelect.contains(e.target)){
+        countryDropdown.classList.remove('active')
+    }
+})
+
+const fname = document.querySelector('#fname')
+const lname = document.querySelector('#lname')
+const email = document.querySelector('#email')
+const phone = document.querySelector('#phone')
+const mes = document.querySelector('#message')
+const btnSend = document.querySelector('#send')
+const allPhone = document.querySelector('#phone-input-wrapper')
+const terms = document.querySelector('#terms')
+btnSend.addEventListener('click',()=>{
+    if(fname.value==''){
+        fname.style.border = '1px solid var(--primary-red)'
+        fname.style.background = '#ff000d54'
+        setTimeout(()=>{
+            fname.style.border = '1px solid var(--border-color)'
+            fname.style.background = 'var(--bg-dark-gray)'
+        },1000)
+    }
+    if(lname.value==''){
+        lname.style.border = '1px solid var(--primary-red)'
+        lname.style.background = '#ff000d54'
+        setTimeout(()=>{
+            lname.style.border = '1px solid var(--border-color)'
+            lname.style.background = 'var(--bg-dark-gray)'
+        },1000)
+    }
+    if(email.value==''){
+        email.style.border = '1px solid var(--primary-red)'
+        email.style.background = '#ff000d54'
+        setTimeout(()=>{
+            email.style.border = '1px solid var(--border-color)'
+            email.style.background = 'var(--bg-dark-gray)'
+        },1000)
+    }
+    if(phone.value==''){
+        allPhone.style.border = '1px solid var(--primary-red)'
+        allPhone.style.background = '#ff000d54'
+        setTimeout(()=>{
+            allPhone.style.border = '1px solid var(--border-color)'
+            allPhone.style.background = 'var(--bg-dark-gray)'
+        },1000)
+    }
+    if(mes.value==''){
+        mes.style.border = '1px solid var(--primary-red)'
+        mes.style.background = '#ff000d54'
+        setTimeout(()=>{
+            mes.style.border = '1px solid var(--border-color)'
+            mes.style.background = 'var(--bg-dark-gray)'
+        },1000)
+    }
+    
+})

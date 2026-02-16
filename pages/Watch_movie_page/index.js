@@ -76,9 +76,9 @@ const renderPage = async(slug)=>{
         const fullImageURL = `${imageDomain}/uploads/${imagePath}`;
         const times = data.data.item.time.split('/');
         const time = " "+times[0]
+        const number = data.data.item.tmdb.season
         if(episodes.length>1){
-            renderChapter(episodes,fullImageURL,time)
-
+            renderChapter(episodes,fullImageURL,time,number)
         }
         else{
             seasonsSection.style.display = 'none';
@@ -206,8 +206,13 @@ function renderCastList (peoples,baseUrl){
     }).join('')
     cast.innerHTML= html
 }
+const seasonNumber = document.querySelector('#seasonNumber')
+function renderSeason(number){
+    seasonNumber.textContent = "Season "+number
+}
 const seasonsList = document.querySelector('.seasons-list')
-function renderChapter(chaps, fullImageURL,time){
+function renderChapter(chaps, fullImageURL,time,number){
+    renderSeason(number)
     window.allEpisodes = chaps;
     const html = chaps.map((chap)=>{
         const parts = chap.filename.split('_');

@@ -88,7 +88,7 @@
             width: 100%;
             background-color: rgba(20, 20, 20, 0.95);
             backdrop-filter: blur(10px);
-            z-index: 997;
+            z-index: 996;
             padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
         }
@@ -527,12 +527,11 @@
             top: 50%;        
             left: 50%;      
             transform: translate(-50%, -50%); 
-            z-index: 99999; 
+            z-index: 9998; 
             background: transparent;
             padding: 0;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-            animation: fadeIn 0.5s ease-out;
             opacity: 0; 
             visibility: hidden;
             transition: opacity 0.5s ease-in-out;
@@ -579,7 +578,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7); 
-            z-index: 998; 
+            z-index: 997; 
         }
         #floating-banner.hien-len {
             opacity: 1;
@@ -658,6 +657,31 @@
 .faq-item.expanded .faq-number {
     color: var(--primary-red);
 }
-
+#intro-overlay {
+    position: fixed;      
+    top: 0;
+    left: 0;
+    width: 100%;          
+    height: 100vh;      
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 9999;        
+    overflow: hidden;
+    display: none;
+}
+#myVideo {
+    position: absolute;   
+    top: 50%;            
+    left: 50%;            
+    min-width: 100%;     
+    min-height: 100%;     
+    width: auto;
+    height: auto;
+    object-fit: cover; 
+    transform: translateX(-50%) translateY(-50%);
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
 
         
