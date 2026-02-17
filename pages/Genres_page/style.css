@@ -144,7 +144,7 @@ header {
       rgba(20, 20, 20, 0.6) 60%,
       rgba(20, 20, 20, 0.2) 100%
     ),
-    url("/asset/endgame.jpg");
+    url("../../asset/endgame.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -421,7 +421,7 @@ header {
 }
 
 .cta-banner {
-  background-image: url("/asset/back1.png");
+  background-image: url("../../asset/back1.png");
   background-size: cover;
   background-position: center;
   border-radius: 20px;

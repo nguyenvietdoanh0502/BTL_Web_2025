@@ -121,3 +121,6 @@ document.addEventListener('click',(e)=>{
         searchRes.style.display = 'none';
     }
 })
+function goWatchPage(slug){
+    window.location.href = `../Watch_movie_page/index.html?slug=${slug}`
+}

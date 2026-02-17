@@ -1,7 +1,3 @@
-// import React from 'react';
-// import { Pagination } from 'antd';
-// const App = () => <Pagination defaultCurrent={6} total={500} />;
-// export default App;
 
 const grid = document.querySelector(".media-grid")
 const grid1 = document.querySelector(".media-grid1")
@@ -458,8 +454,8 @@ document.addEventListener('click',(e)=>{
     }
 })
 function goWatchPage(slug){
-    window.location.href = `/pages/Watch_movie_page/index.html?slug=${slug}`
+    window.location.href = `../Watch_movie_page/index.html?slug=${slug}`
 }
 function goGenresPage(slug){
-    window.location.href = `/pages/Genres_page/index.html?slug=${slug}`
+    window.location.href = `../Genres_page/index.html?slug=${slug}`
 }

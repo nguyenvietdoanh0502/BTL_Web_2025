@@ -140,3 +140,6 @@ btnSend.addEventListener('click',()=>{
     }
     
 })
+function goWatchPage(slug){
+    window.location.href = `../Watch_movie_page/index.html?slug=${slug}`
+}

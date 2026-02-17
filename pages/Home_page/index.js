@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },1000)
 });
 function goGenresPage(slug){
-    window.location.href = `/pages/Genres_page/index.html?slug=${slug}`
+    window.location.href = `../Genres_page/index.html?slug=${slug}`
 }
 document.querySelectorAll('.faq-item').forEach(item => {
     const header = item.querySelector('.faq-header');
