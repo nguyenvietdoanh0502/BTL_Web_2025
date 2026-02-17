@@ -516,7 +516,7 @@ footer {
   display: grid;
   grid-auto-flow: column;
   gap: 20px;
-  grid-auto-columns: calc((100% - 80px) / 5);
+  grid-auto-columns: calc((100% - 40px) / 2.2);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;

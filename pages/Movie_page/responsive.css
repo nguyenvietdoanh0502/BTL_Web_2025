@@ -26,14 +26,6 @@
   .red-badge {
     left: 20px;
   }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-  .footer-bottom-links {
-    justify-content: center;
-  }
 }
 
 @media (max-width: 480px) {
@@ -59,4 +51,19 @@
   .search-box input {
     width: 150px;
   }
+}
+@media (min-width: 600px) {
+    .media-grid1 {
+        grid-auto-columns: calc((100% - 60px) / 3.5);
+    }
+}
+@media (min-width: 1024px) {
+    .media-grid1 {
+        grid-auto-columns: calc((100% - 80px) / 4.5);
+    }
+}
+@media (min-width: 1280px) {
+    .media-grid1 {
+        grid-auto-columns: calc((100% - 100px) / 5.5);
+    }
 }

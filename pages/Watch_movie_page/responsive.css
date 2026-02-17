@@ -24,10 +24,6 @@
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 15px;
-  }
 }
 @media (max-width: 1024px) {
   .media-grid {
@@ -57,14 +53,7 @@
   .red-badge {
     left: 20px;
   }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-  .footer-bottom-links {
-    justify-content: center;
-  }
+
 }
 
 @media (max-width: 480px) {
@@ -89,5 +78,61 @@
 @media (max-width: 768px) {
   .search-box input {
     width: 150px;
+  }
+}
+@media (max-width: 1200px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .price-card:last-child {
+    grid-column: span 2;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .price-card:last-child {
+    grid-column: auto;
+  }
+  .cta-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .cta-banner-wrapper {
+    padding: 40px 20px;
+    background-position: left center;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .comparison-table th,
+  .comparison-table td {
+    padding: 15px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .price-actions {
+    flex-direction: column;
   }
 }
