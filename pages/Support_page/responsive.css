@@ -1,43 +1,43 @@
 @media (max-width: 1024px) {
-    .support-hero {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .support-poster-grid {
-        display: none;
-    }
-    .faq-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .cta-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
+  .support-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .support-poster-grid {
+    display: none;
+  }
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .cta-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
 }
 
 @media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    .form-footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-    .form-footer button {
-        width: 100%;
-    }
-    .cta-banner {
-        padding: 40px 20px;
-    }
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .footer-bottom {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .form-footer button {
+    width: 100%;
+  }
+  .cta-banner {
+    padding: 40px 20px;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
 }

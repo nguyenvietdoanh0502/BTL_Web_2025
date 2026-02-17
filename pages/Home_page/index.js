@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     loadBanner()
     const closeBtn = document.querySelector('.btn-close-banner');
-    let s = 10
+    let s = 1
     const countDown=setInterval(()=>{
         closeBtn.style.display = 'flex'; 
         closeBtn.textContent = s
