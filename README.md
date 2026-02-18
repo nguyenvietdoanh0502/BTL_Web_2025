@@ -9,6 +9,9 @@
 ## 🔗 Demo
 👉 **Trải nghiệm ngay tại:** https://nguyenvietdoanh0502.github.io/BTL_Web_2025/pages/Home_page/index.html
 
+👉 **Hoặc quét QR:**
+![QR](./asset/QR.png)
+
 ---
 
 ## 📸 Hình ảnh demo
