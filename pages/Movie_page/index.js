@@ -106,7 +106,6 @@ const getMovieMain = async ()=>{
     try{
         const response = await fetch(`https://ophim1.com/v1/api/home`)
         const movies = await response.json()
-        console.log(movies)
         return movies
     }catch(error){
         console.log(error)
@@ -189,12 +188,9 @@ const getMovieNewRelease = async(year,page)=>{
 }
 
 function renderMovieNewReleasePage(year,page){
-    console.log(page)
     getMovieNewRelease(year,page).then((movies)=>{
             grid.innerHTML = '';
-            console.log(movies.data.items)
             const imageDomain = movies.data.APP_DOMAIN_CDN_IMAGE;
-            
             const htmlContent = movies.data.items.map(item=>{
                 const date = new Date(item.modified.time);
                 const formattedDate = date.toLocaleDateString('en-GB');
@@ -273,7 +269,6 @@ const btnAllMovieRight = document.querySelector('#all-movie-right')
 const btnAllMovieLeft = document.querySelector('#all-movie-left')
 let currentPage = 1
 function renderAllMovies(){
-    console.log(currentPage)
     getAllMovies(currentPage).then((movies)=>{
         const imageDomain = movies.data.APP_DOMAIN_CDN_IMAGE;
         const htmlAllMovies=movies.data.items.map(item=>{
@@ -348,13 +343,10 @@ const mustWatchRight = document.querySelector("#must-watch-right")
 let index = 0      
 let check = 0
 function renderMustWatchGrid(imageDomain) {
-    console.log(mustWatch)
     check = mustWatch.length - mustWatch.length%10
     mustWatch = mustWatch.sort((b,a)=>a.imdb.vote_average - b.imdb.vote_average)
     let htmlContent = ''
     let end = Math.min(index + 10, mustWatch.length);
-    console.log(index)
-    console.log(end)
     for(let i = index;i<end;i++){
         const thumbUrl = `${imageDomain}/uploads/movies/${mustWatch[i].thumb_url}`;
         htmlContent+=`<div class="movie-card" onclick="goWatchPage('${mustWatch[i].slug}')">
@@ -459,3 +451,27 @@ function goWatchPage(slug){
 function goGenresPage(slug){
     window.location.href = `../Genres_page/index.html?slug=${slug}`
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenu = document.querySelector('#mobile-menu');
+    const navLinks = document.querySelector('#nav-links');
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+    document.addEventListener('click', function(event) {
+        if (!mobileMenu.contains(event.target) && !navLinks.contains(event.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenu.querySelector('i').classList.remove('fa-times');
+            mobileMenu.querySelector('i').classList.add('fa-bars');
+        }
+    });
+});

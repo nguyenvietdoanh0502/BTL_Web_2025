@@ -616,3 +616,15 @@ footer {
   border: none;
   transition: all 0.3s ease;
 }
+.menu-toggle {
+    display: none; 
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-white);
+    margin-left: 15px;
+}
+.logo1 {
+  font-size: 1.0rem;
+  font-weight: 500;
+  display: none;
+}
