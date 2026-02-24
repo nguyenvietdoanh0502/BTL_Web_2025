@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confict - Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" type="image/png" href="../../asset/logo2.png">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container" style="margin-top: 0px;">
+            <div class="menu-toggle" id="mobile-menu">
+                <a href="#" class="logo1">
+                    <img src="../../asset/logo2.png" alt="" style="width: 40px;">
+                </a>
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="#" class="logo">
+                <img src="../../asset/logo2.png" alt="" style="width: 40px;"></i>Conflict
+            </a>
+            <nav class="nav-links" id="nav-links">
+                <a href="../Home_page/index.html" >Home</a>
+                <a href="../Movie_page/index.html" class="active">Movies</a>
+                <a href="../Support_page/index.html">Support</a>
+                <a href="../Subscription_page/index.html">Subscriptions</a>
+            </nav>
+            <div class="header-icons">
+                <div class="header-actions">
+                    <div class="search-container" style="position: relative;">
+                    <div class="search-box">
+                        <input type="text" id="search-input" autocomplete="off" placeholder="Search movies...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <div id="search-results" class="search-results-dropdown"></div>
+                </div>
+                </div>
+                <a href="#"><i class="fas fa-bell"></i></a>
+            </div>
+        </div>
+    </header>
+
+   <section class="simple-video-section">
+        <div class="movie-name">
+            
+            <h2 id="movie_title"></h2>
+            <h2 id="movie_title2"></h2>
+        </div>
+        <div class="video-box container" style="margin-top: 40px;" id = "video">
+            
+        </div>
+    </section>
+
+<main class="main-content container">
+        <div class="details-grid">
+            <div class="left-column">
+                <section class="seasons-section">
+                    <div class="seasons-header">
+                        <h3>Episodes</h3>
+                        <div class="season-dropdown" id = "seasonNumber">
+                            Season 01 
+                        </div>
+                    </div>
+
+                    <div class="seasons-list">
+                        <!-- <div class="season-card">
+                            <div class="season-card__number">01</div>
+                            <div class="season-card__img">
+                                <img src="https://via.placeholder.com/150x100" alt="Ep 1">
+                            </div>
+                            <div class="season-card__info">
+                                <div class="card-info__header">
+                                    <h4>Chapter One: The Vanishing of Will Byers</h4>
+                                    <span class="duration"><i class="fa-regular fa-clock"></i> 49 min</span>
+                                </div>
+                                <p>On his way home from a friend's house, young Will sees something terrifying. Nearby, a sinister secret lurks in the depths of a government lab.</p>
+                            </div>
+                        </div> -->
+                    </div>
+                </section>
+                <div class="content-card">
+                    <h3>Description</h3>
+                    <p class="text-gray" id="movie_description">
+                        In 1980s Indiana, a group of young friends witness supernatural forces and secret government exploits. As they search for answers, the children unravel a series of extraordinary mysteries.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Cast</h3>
+                    <div class="cast-list">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="content-card meta-card">
+                    <div class="meta-row">
+                        <span class="meta-label"><i class="fa-regular fa-calendar"></i> Released</span>
+                        <span class="meta-value" id="released">2016</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label"><i class="fa-solid fa-language"></i> Language</span>
+                        <span class="meta-value" id="lang">English</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label"><i class="fa-regular fa-star"></i> Rating</span>
+                        <span class="meta-value" id ="rate">IMDb 8.7</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label"><i class="fa-solid fa-film"></i> Genres</span>
+                        <div class="genres-tags">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cta-banner-wrapper">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Start your free trial today!</h2>
+                    <p>This is a clear and concise call to action that encourages users to sign up for a free trial of Conflict.</p>
+                </div>
+                <button class="btn btn-primary">Start a Free Trial</button>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Home</h4>
+                    <ul>
+                        <li><a href="../Home_page/index.html#categories">Categories</a></li>
+                        <li><a href="../Home_page/index.html#devices">Devices</a></li>
+                        <li><a href="../Home_page/index.html#faq">FAQ</a></li>
+                        <li><a href="../Home_page/index.html#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Movies</h4>
+                    <ul>
+                        <li><a href="../Movie_page/index.html#lctGenres">Genres</a></li>
+                        <li><a href="../Movie_page/index.html#lctNew">New Release</a></li>
+                        <li><a href="../Movie_page/index.html#lctMust">Must Watch</a></li>
+                        <li><a href="../Movie_page/index.html#lctAll">All Movies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Shows</h4>
+                    <ul>
+                        <li><a href="../Error_page/index.html">Genres</a></li>
+                        <li><a href="../Error_page/index.html">Trending</a></li>
+                        <li><a href="../Error_page/index.html">New Release</a></li>
+                        <li><a href="../Error_page/index.html">Popular</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="../Support_page/index.html" >Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Subscription</h4>
+                    <ul>
+                        <li><a href="../Subscription_page/index.html">Plans</a></li>
+                        <li><a href="../Subscription_page/index.html#features">Features</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div style="display: flex; gap: 10px; font-size: 1.2rem;">
+                        <a href="https://www.facebook.com/HITClub.HaUI" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="../Error_page/index.html"><i class="fab fa-twitter"></i></a>
+                        <a href="../Error_page/index.html"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Conflict. All Rights Reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="../Error_page/index.html">Terms of Use</a>
+                    <a href="../Error_page/index.html">Privacy Policy</a>
+                    <a href="../Error_page/index.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../Watch_movie_page/index.js"></script>
+</body>
+</html>

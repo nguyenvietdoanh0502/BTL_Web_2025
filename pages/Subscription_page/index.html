@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conflict - Subscription</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../asset/logo2.png">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container" style="margin-top: 0px;">
+            <div class="menu-toggle" id="mobile-menu">
+                <a href="#" class="logo1">
+                    <img src="../../asset/logo2.png" alt="" style="width: 40px;">
+                </a>
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="#" class="logo">
+                <img src="../../asset/logo2.png" alt="" style="width: 40px;"></i>Conflict
+            </a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="../Home_page/index.html" >Home</a>
+                <a href="../Movie_page/index.html" >Movies</a>
+                <a href="../Support_page/index.html">Support</a>
+                <a href="#" class="active">Subscriptions</a>
+            </nav>
+            <div class="header-icons">
+                <div class="header-actions">
+                    <div class="search-container" style="position: relative;">
+                    <div class="search-box">
+                        <input type="text" id="search-input" autocomplete="off" placeholder="Search movies...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <div id="search-results" class="search-results-dropdown"></div>
+                </div>
+                </div>
+                <a href="#"><i class="fas fa-bell"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" id = "pricing">
+            <div class="section-header" style="margin-top: 160px;">
+                <div class="section-title">
+                    <h2>Choose the plan that's right for you</h2>
+                    <p>Join Conflict and select from our flexible subscription options tailored to suit your viewing preferences. Get ready for non-stop entertainment!</p>
+                </div>
+                <div style="background: var(--bg-black); border: 1px solid #333; padding: 5px; border-radius: 8px;">
+                    <button class="btn btn-dark" style="background: #333; border: none;" id = "btn-monthly">Monthly</button>
+                    <button class="btn btn-dark" style="border: none;" id ="btn-yearly">Yearly</button>
+                </div>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Basic Plan</h3>
+                    <p>Enjoy an extensive library of movies and shows, featuring a range of content, including recently released titles.</p>
+                    <div class="price">$9.99 <span>/month</span></div>
+                    <div class="price-actions">
+                        <button class="btn btn-dark">Start Free Trial</button>
+                        <button class="btn btn-primary">Choose Plan</button>
+                    </div>
+                </div>
+                <div class="price-card">
+                    <h3>Standard Plan</h3>
+                    <p>Access to a wider selection of movies and shows, including most new releases and exclusive content.</p>
+                    <div class="price">$12.99 <span>/month</span></div>
+                    <div class="price-actions">
+                        <button class="btn btn-dark">Start Free Trial</button>
+                        <button class="btn btn-primary">Choose Plan</button>
+                    </div>
+                </div>
+                <div class="price-card" id = "features">
+                    <h3>Premium Plan</h3>
+                    <p>Access to a widest selection of movies and shows, including all new releases and Offline Viewing.</p>
+                    <div class="price">$14.99 <span>/month</span></div>
+                    <div class="price-actions">
+                        <button class="btn btn-dark">Start Free Trial</button>
+                        <button class="btn btn-primary">Choose Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" >
+            <div class="comparison-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>Compare our plans and find the right one for you</h2>
+                        <p>Conflict offers three different plans to fit your needs: Basic, Standard, and Premium. Compare the features of each plan and choose the one that's right for you.</p>
+                    </div>
+                </div>
+
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Features</th>
+                                <th>Basic</th>
+                                <th>Standard <span class="badge-popular">Popular</span></th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Price</td>
+                                <td>$9.99/Month or $99.99/Year</td>
+                                <td>$12.99/Month or $129.99/Year</td>
+                                <td>$14.99/Month or $149.99/Year</td>
+                            </tr>
+                            <tr>
+                                <td>Content</td>
+                                <td>Access to a wide selection of movies and shows, including some new releases.</td>
+                                <td>Access to a wider selection of movies and shows, including most new releases and exclusive content.</td>
+                                <td>Access to a widest selection of movies and shows, including all new releases and Offline Viewing.</td>
+                            </tr>
+                            <tr>
+                                <td>Devices</td>
+                                <td>Watch on one device simultaneously</td>
+                                <td>Watch on Two device simultaneously</td>
+                                <td>Watch on Four device simultaneously</td>
+                            </tr>
+                            <tr>
+                                <td>Free Trail</td>
+                                <td>7 Days</td>
+                                <td>7 Days</td>
+                                <td>7 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Cancel Anytime</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>HDR</td>
+                                <td>No</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Dolby Atmos</td>
+                                <td>No</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Ad - Free</td>
+                                <td>No</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Offline Viewing</td>
+                                <td>No</td>
+                                <td>Yes, for select titles.</td>
+                                <td>Yes, for all titles.</td>
+                            </tr>
+                            <tr>
+                                <td>Family Sharing</td>
+                                <td>No</td>
+                                <td>Yes, up to 5 family members.</td>
+                                <td>Yes, up to 6 family members.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="cta-banner-wrapper">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>Start your free trial today!</h2>
+                        <p>This is a clear and concise call to action that encourages users to sign up for a free trial of Conflict.</p>
+                    </div>
+                    <button class="btn btn-primary">Start a Free Trial</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Home</h4>
+                    <ul>
+                        <li><a href="../Home_page/index.html#categories">Categories</a></li>
+                        <li><a href="../Home_page/index.html#devices">Devices</a></li>
+                        <li><a href="../Home_page/index.html#faq">FAQ</a></li>
+                        <li><a href="../Home_page/index.html#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Movies</h4>
+                    <ul>
+                        <li><a href="../Movie_page/index.html#lctGenres">Genres</a></li>
+                        <li><a href="../Movie_page/index.html#lctNew">New Release</a></li>
+                        <li><a href="../Movie_page/index.html#lctMust">Must Watch</a></li>
+                        <li><a href="../Movie_page/index.html#lctAll">All Movies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Shows</h4>
+                    <ul>
+                        <li><a href="../Error_page/index.html">Genres</a></li>
+                        <li><a href="../Error_page/index.html">Trending</a></li>
+                        <li><a href="../Error_page/index.html">New Release</a></li>
+                        <li><a href="../Error_page/index.html">Popular</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="../Support_page/index.html" >Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Subscription</h4>
+                    <ul>
+                        <li><a href="../Subscription_page/index.html">Plans</a></li>
+                        <li><a href="../Subscription_page/index.html#features">Features</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div style="display: flex; gap: 10px; font-size: 1.2rem;">
+                        <a href="https://www.facebook.com/HITClub.HaUI" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="../Error_page/index.html"><i class="fab fa-twitter"></i></a>
+                        <a href="../Error_page/index.html"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Conflict. All Rights Reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="../Error_page/index.html">Terms of Use</a>
+                    <a href="../Error_page/index.html">Privacy Policy</a>
+                    <a href="../Error_page/index.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../Subscription_page/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+  body {
+    background-position: 65% center;
+    padding-bottom: 60px;
+  }
+  .home-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}

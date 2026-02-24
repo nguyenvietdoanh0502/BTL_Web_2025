@@ -290,7 +290,7 @@ header {
   display: grid;
   grid-auto-flow: column;
   gap: 20px;
-  grid-auto-columns: calc((100% - 40px) / 2.2);
+  grid-auto-columns: calc((100% - 80px) / 5);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -622,6 +622,7 @@ footer {
     color: var(--text-white);
     margin-left: 15px;
 }
+
 .logo1 {
   font-size: 1.0rem;
   font-weight: 500;

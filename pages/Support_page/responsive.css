@@ -7,6 +7,7 @@
   .media-grid1 {
     grid-auto-columns: calc((100% - 80px) / 4.5);
   }
+
 }
 @media (min-width: 1280px) {
   .media-grid1 {
@@ -21,6 +22,10 @@
   .footer-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .support-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
   .hero h1 {
     font-size: 3rem;
   }
@@ -30,6 +35,9 @@
   }
   .media-grid1 {
     grid-auto-columns: calc((100% - 20px) / 2);
+  }
+  .media-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media screen and (max-width: 768px) {
@@ -73,12 +81,32 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
-
   .footer-bottom {
     flex-direction: column;
     gap: 15px;
     text-align: center;
     align-items: center;
+  }
+  .media-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .section-title h2 {
+    font-size: 2rem;
+  }
+  .cta-banner-wrapper {
+    padding: 50px 30px;
+  }
+  .cta-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .support-poster-grid{
+    display: none;
   }
 }
 @media screen and (max-width: 480px) {
@@ -86,6 +114,9 @@
   .pricing-grid,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+  .support-poster-grid{
+    display: none;
   }
   .faq-item:first-child{
     padding-top: 25px;
@@ -96,7 +127,6 @@
   .search-box input {
     width: 140px;
   }
-
   .hero h1 {
     font-size: 1.8rem;
   }
@@ -123,6 +153,26 @@
   .price-actions {
     flex-direction: column;
   }
+  .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .section-title h2 {
+    font-size: 1.5rem;
+  }
+  .cta-banner-wrapper {
+    padding: 30px 20px;
+  }
+  .price {
+    font-size: 1.5rem;
+  }
+  .cta-text h2 {
+    font-size: 1.8rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 768px) {
   .menu-toggle {
@@ -130,10 +180,10 @@
     align-items: center;
     gap: 10px;
   }
-  .logo{
+  .logo {
     display: none;
   }
-  .logo1{
+  .logo1 {
     display: flex;
   }
   .nav-container {
@@ -179,5 +229,16 @@
   .nav-links a:hover {
     background-color: var(--primary-red);
     color: var(--text-white);
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .form-footer button {
+    width: 100%;
   }
 }

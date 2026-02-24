@@ -1,0 +1,299 @@
+const searchInput = document.querySelector('#search-input')
+const searchRes = document.querySelector('#search-results')
+let debounceTimeout = null;
+const getSearchMovie = async(key)=>{
+    if(!key){
+        searchRes.style.display = 'none'
+        return
+    }
+    try{
+        const response = await fetch(`https://ophim1.com/v1/api/tim-kiem?keyword=${key}`)
+        const datas = await response.json()
+        const imageDomain = datas.data.APP_DOMAIN_CDN_IMAGE
+        const movies = datas.data.items;
+        renderSearchMovie(movies,imageDomain)
+    }catch(error){
+        console.log(error)
+    }
+}
+function renderSearchMovie(movies,imageDomain){
+    if(!movies||movies.length==0){
+        searchRes.innerHTML = '<div style="padding:15px; text-align:center; color:#999; font-size:12px">Không tìm thấy phim</div>';
+        searchRes.style.display = 'block'
+        return;
+    }
+    const htmlContent = movies.map(item=>{
+        const thumb_url = `${imageDomain}/uploads/movies/${item.thumb_url}`;
+        
+        return `
+            <div class="search-item" onclick="goWatchPage('${item.slug}')">
+                <img src="${thumb_url}" alt="${item.name}">
+                <div class="search-info">
+                    <div class="search-title">${item.name}</div>
+                    <div class="search-meta">${item.origin_name} (${item.year})</div>
+                    <div class="search-meta1">${item.time}</div>
+                    <div class="search-meta2">${item.slug}</div>
+                </div>
+            </div>
+        `
+    }).join('')
+    searchRes.innerHTML = htmlContent
+    searchRes.style.display = 'block'
+}
+searchInput.addEventListener('input',(e)=>{
+    const key = e.target.value.trim()
+    clearTimeout(debounceTimeout)
+    debounceTimeout = setTimeout(()=>{
+        getSearchMovie(key);
+    },500)
+})
+document.addEventListener('click',(e)=>{
+    if(!searchInput.contains(e.target) && !searchRes.contains(e.target)){
+        searchRes.style.display = 'none';
+    }
+})
+function goWatchPage(slug){
+    window.location.href = `../Watch_movie_page/index.html?slug=${slug}`
+}
+
+const getMovieData = async (slug) => {
+    try {
+        const response = await fetch(`https://ophim1.com/v1/api/the-loai/${slug}
+            
+            `);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+const grid1 = document.querySelector(".media-grid1")
+function renderMovieSlug(slug,name){
+    getMovieData(slug).then((apiResult)=>{
+        const box = document.createElement('div');
+        box.innerHTML='';
+        const imageDomain = apiResult.data.APP_DOMAIN_CDN_IMAGE;
+        const thumbUrl1 = `${imageDomain}/uploads/movies/${apiResult.data.items[0].thumb_url}`;
+        const thumbUrl2 = `${imageDomain}/uploads/movies/${apiResult.data.items[1].thumb_url}`;
+        const thumbUrl3 = `${imageDomain}/uploads/movies/${apiResult.data.items[2].thumb_url}`;
+        const thumbUrl4 = `${imageDomain}/uploads/movies/${apiResult.data.items[3].thumb_url}`;
+        const boxContent = `<div class="genre-card" onClick="goGenresPage('${slug}')">
+                        <div class="genre-images-grid">
+                            <img src="${thumbUrl1}" class="genre-img-item" alt="${slug}">
+                            <img src="${thumbUrl2}" class="genre-img-item" alt="${slug}">
+                            <img src="${thumbUrl3}" class="genre-img-item" alt="${slug}">
+                            <img src="${thumbUrl4}" class="genre-img-item" alt="${slug}">
+                        </div>
+                        <div class="genre-footer">
+                            <span>${name}</span> <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>`
+        box.innerHTML = boxContent;
+        grid1.appendChild(box)
+        updateButtons()
+    })
+}
+
+const genresLeft = document.querySelector('#genres-left')
+const genresRight = document.querySelector('#genres-right')
+const getSlugData = async ()=>{
+    try{
+        const response = await fetch(`https://ophim1.com/v1/api/the-loai`);
+        const slugs = await response.json();
+        const allGenres = slugs.data.items.filter(item => item.slug != 'phim-18');
+        grid1.innerHTML=''
+        for(let i = 0;i<allGenres.length;i++){
+            renderMovieSlug(allGenres[i].slug,allGenres[i].name)
+        }
+    }catch(error){
+        console.error(error);
+    }
+}
+
+
+function updateButtons() {
+    const maxScrollLeft = grid1.scrollWidth - grid1.clientWidth;
+    genresLeft.style.opacity = grid1.scrollLeft <= 10 ? "0.5" : "1";
+    genresLeft.disabled = grid1.scrollLeft <= 10;
+    const isEnd = grid1.scrollLeft >= maxScrollLeft - 10;
+    genresRight.style.opacity = isEnd ? "0.5" : "1";
+    genresRight.disabled = isEnd;
+}
+
+genresRight.addEventListener('click', () => {
+    grid1.scrollBy({
+        left: grid1.clientWidth, 
+        behavior: 'smooth'
+    });
+});
+
+genresLeft.addEventListener('click', () => {
+   grid1.scrollBy({
+        left: -grid1.clientWidth, 
+        behavior: 'smooth'
+    });
+});
+grid1.addEventListener('scroll', updateButtons);
+getSlugData()
+
+const bannerImg = document.querySelector('#bannerImg')
+const banner = document.getElementById('floating-banner');
+function loadBanner(){
+    const x =  Math.floor(Math.random() * (19 - 1 + 1)) + 0;
+    bannerImg.src = `../../asset/QC/${x}.jpg`
+    if (bannerImg.src) { 
+        setTimeout(() => {
+            banner.classList.add('hien-len');
+        }, 500); 
+    }
+}
+function closeBanner() {
+    const overlay1 = document.getElementById('overlay')
+    if (banner) {
+        banner.style.display = 'none'; 
+        overlay1.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+document.addEventListener("DOMContentLoaded", () => {
+    if(!sessionStorage.getItem('daXemIntro')){
+        introOverlay.style.display = 'flex'
+        sessionStorage.setItem('daXemIntro', 'true');
+    }
+    loadBanner()
+    const closeBtn = document.querySelector('.btn-close-banner');
+    let s = 1
+    const countDown=setInterval(()=>{
+        closeBtn.style.display = 'flex'; 
+        closeBtn.textContent = s
+        s--
+        if(s<0){
+            clearInterval(countDown);
+            closeBtn.textContent = "X";
+            closeBtn.addEventListener('click',closeBanner)
+        }
+    },1000)
+});
+function goGenresPage(slug){
+    window.location.href = `../Genres_page/index.html?slug=${slug}`
+}
+document.querySelectorAll('.faq-item').forEach(item => {
+    const header = item.querySelector('.faq-header');
+    header.addEventListener('click', () => {
+        const body = item.querySelector('.faq-body');
+        const icon = item.querySelector('.toggle-icon');            
+        if (body.style.display === 'block') {
+            body.style.display = 'none';
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+            item.classList.remove('expanded');
+        } else {
+            body.style.display = 'block';
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+            item.classList.add('expanded');
+        }
+    });
+});
+const planGrid = document.querySelector('.pricing-grid')
+const btnMonth = document.querySelector('#btn-monthly')
+const btnYear = document.querySelector('#btn-yearly')
+btnMonth.addEventListener('click',()=>{
+    btnMonth.style.background = '#333'
+    btnYear.style.background = '#33333300'
+    btnYear.style.border = 'none'
+    planGrid.innerHTML = `
+            <div class="price-card">
+                <h3>Basic Plan</h3>
+                <p>Enjoy an extensive library of movies and shows, featuring a range of content, including recently released titles.</p>
+                <div class="price">$9.99 <span>/month</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Standard Plan</h3>
+                <p>Access to a wider selection of movies and shows, including most new releases and exclusive content.</p>
+                <div class="price">$12.99 <span>/month</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Premium Plan</h3>
+                <p>Access to a widest selection of movies and shows, including all new releases and Offline Viewing.</p>
+                <div class="price">$14.99 <span>/month</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>`
+})
+btnYear.addEventListener('click',()=>{
+    btnYear.style.background = '#333'
+    btnMonth.style.background = '#33333300'
+    btnMonth.style.border = 'none'
+    planGrid.innerHTML = `
+            <div class="price-card">
+                <h3>Basic Plan</h3>
+                <p>Enjoy an extensive library of movies and shows, featuring a range of content, including recently released titles.</p>
+                <div class="price">$99.99 <span>/year</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Standard Plan</h3>
+                <p>Access to a wider selection of movies and shows, including most new releases and exclusive content.</p>
+                <div class="price">$129.99 <span>/year</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Premium Plan</h3>
+                <p>Access to a widest selection of movies and shows, including all new releases and Offline Viewing.</p>
+                <div class="price">$149.99 <span>/year</span></div>
+                <div class="price-actions">
+                    <button class="btn btn-dark">Start Free Trial</button>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+            </div>`
+})
+const video = document.getElementById('myVideo');
+const introOverlay = document.getElementById('intro-overlay');
+function finishIntro() {
+    introOverlay.classList.add('hidden');
+}
+video.addEventListener('ended', function() {
+    finishIntro();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenu = document.querySelector('#mobile-menu');
+    const navLinks = document.querySelector('#nav-links');
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+    document.addEventListener('click', function(event) {
+        if (!mobileMenu.contains(event.target) && !navLinks.contains(event.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenu.querySelector('i').classList.remove('fa-times');
+            mobileMenu.querySelector('i').classList.add('fa-bars');
+        }
+    });
+});
