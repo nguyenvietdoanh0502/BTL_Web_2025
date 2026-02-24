@@ -115,6 +115,9 @@
   .footer-grid {
     grid-template-columns: 1fr;
   }
+  .faq-item:first-child{
+    padding-top: 25px;
+  }
   .media-grid1 {
     grid-auto-columns: calc((100% - 10px) / 1.15);
   }
