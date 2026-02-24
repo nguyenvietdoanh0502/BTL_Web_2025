@@ -105,6 +105,9 @@
     grid-template-columns: 1fr;
     gap: 30px;
   }
+  .support-poster-grid{
+    display: none;
+  }
 }
 @media screen and (max-width: 480px) {
   .devices-grid,
