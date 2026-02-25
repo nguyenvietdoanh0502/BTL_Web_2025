@@ -48,6 +48,15 @@
   section {
     padding: 80px 0;
   }
+  .simple-video-section{
+    margin-bottom: 0px;
+  }
+  .details-grid{
+    gap: 0px;
+  }
+  .main-content{
+    margin-top: 0px;
+  }
   .nav-container {
     flex-direction: column;
     gap: 15px;
