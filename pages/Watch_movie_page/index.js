@@ -163,11 +163,13 @@ const lang = document.querySelector('#lang')
 const rate = document.querySelector('#rate')
 const genres = document.querySelector('.genres-tags')
 const cast = document.querySelector('.cast-list')
+const progress = document.querySelector('#progress')
 function renderInfor(movie){
     title.textContent = movie.name
     desc.innerHTML = movie.content
     released.textContent = movie.year
     lang.textContent = movie.lang
+    progress.textContent = movie.episode_current
     rate.textContent = "IMDb "+movie.imdb.vote_average
     const categories = movie.category
     const html = categories.map((item)=>{

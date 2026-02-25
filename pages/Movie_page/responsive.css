@@ -100,8 +100,6 @@
     font-size: 2.2rem;
   }
   .section-header {
-    flex-direction: column;
-    align-items: flex-start;
     gap: 15px;
   }
   .cta-banner {
@@ -117,7 +115,11 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
-  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 20px;
