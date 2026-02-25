@@ -158,11 +158,11 @@ function renderMainMovie(){
             getMovieInfo(movies.data.items[index].slug).then((infos)=>{
                 hero_desc.textContent = infos.data.seoOnPage.descriptionHead
                 btnPlay.addEventListener('click',()=>{
-                    goWatchPage(movies.data.items[index].slug)
+                    goWatchPage(movies.data.items[index-1].slug)
                 })
             })
             index++
-        },20000)
+        },15000)
     })
 }
 renderMainMovie()
