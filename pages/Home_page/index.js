@@ -139,7 +139,7 @@ getSlugData()
 const bannerImg = document.querySelector('#bannerImg')
 const banner = document.getElementById('floating-banner');
 function loadBanner(){
-    const x =  Math.floor(Math.random() * (19 - 1 + 1)) + 0;
+    const x =  Math.floor(Math.random() * (20 - 1 + 1)) + 0;
     bannerImg.src = `../../asset/QC/${x}.jpg`
     if (bannerImg.src) { 
         setTimeout(() => {

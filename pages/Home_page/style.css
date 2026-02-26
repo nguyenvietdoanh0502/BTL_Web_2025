@@ -738,3 +738,6 @@ footer {
   font-weight: 500;
   display: none;
 }
+#myVideo1 {    
+  transform: scale(0.6);
+}
