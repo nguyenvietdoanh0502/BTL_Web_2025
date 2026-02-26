@@ -362,7 +362,7 @@ function renderMustWatchGrid(imageDomain) {
     }
     mustWatchGrid.innerHTML = htmlContent;
     checkButton2()
-}
+}           
 renderMustWatch();
 mustWatchRight.addEventListener('click',()=>{
     index+=10

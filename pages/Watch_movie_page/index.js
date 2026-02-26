@@ -147,7 +147,7 @@ function renderVideo(chapter,index){
                             allow="autoplay; encrypted-media; picture-in-picture; web-share"
                             allowfullscreen>
                         </iframe>`
-        }, 10000);
+        }, 5000);
     }
     window.scrollTo({
       top: 0,
