@@ -1,5 +1,6 @@
 const searchInput = document.querySelector('#search-input')
 const searchRes = document.querySelector('#search-results')
+const searchButton = document.querySelector('.search-box button')
 let debounceTimeout = null;
 const getSearchMovie = async(key)=>{
     if(!key){
@@ -47,6 +48,15 @@ searchInput.addEventListener('input',(e)=>{
         getSearchMovie(key);
     },500)
 })
+searchInput.addEventListener('keydown',(e)=>{
+    if(e.key==='Enter'){
+        e.preventDefault()
+        goSearchPage(searchInput.value.trim())
+    }
+})
+searchButton?.addEventListener('click',()=>{
+    goSearchPage(searchInput.value.trim())
+})
 document.addEventListener('click',(e)=>{
     if(!searchInput.contains(e.target) && !searchRes.contains(e.target)){
         searchRes.style.display = 'none';
@@ -54,6 +64,12 @@ document.addEventListener('click',(e)=>{
 })
 function goWatchPage(slug){
     window.location.href = `../Watch_movie_page/index.html?slug=${slug}`
+}
+function goSearchPage(keyword){
+    if(!keyword){
+        return
+    }
+    window.location.href = `../Search_page/index.html?keyword=${encodeURIComponent(keyword)}`
 }
 
 const getMovieData = async (slug) => {
@@ -136,25 +152,7 @@ genresLeft.addEventListener('click', () => {
 grid1.addEventListener('scroll', updateButtons);
 getSlugData()
 
-const bannerImg = document.querySelector('#bannerImg')
-const banner = document.getElementById('floating-banner');
-function loadBanner(){
-    const x =  Math.floor(Math.random() * (20 - 1 + 1)) + 0;
-    bannerImg.src = `../../asset/QC/${x}.jpg`
-    if (bannerImg.src) { 
-        setTimeout(() => {
-            banner.classList.add('hien-len');
-        }, 500); 
-    }
-}
-function closeBanner() {
-    const overlay1 = document.getElementById('overlay')
-    if (banner) {
-        banner.style.display = 'none'; 
-        overlay1.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-}
+
 document.addEventListener("DOMContentLoaded", () => {
     if(!sessionStorage.getItem('daXemIntro')){
         introOverlay.style.display = 'flex'
@@ -162,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     loadBanner()
     const closeBtn = document.querySelector('.btn-close-banner');
-    let s = 1
+    let s = 10
     const countDown=setInterval(()=>{
         closeBtn.style.display = 'flex'; 
         closeBtn.textContent = s

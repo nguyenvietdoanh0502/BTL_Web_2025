@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 const searchInput = document.querySelector('#search-input')
 const searchRes = document.querySelector('#search-results')
+const searchButton = document.querySelector('.search-box button')
 let debounceTimeout = null;
 const getSearchMovie = async(key)=>{
     if(!key){
@@ -55,6 +56,15 @@ searchInput.addEventListener('input',(e)=>{
         getSearchMovie(key);
     },500)
 })
+searchInput.addEventListener('keydown',(e)=>{
+    if(e.key==='Enter'){
+        e.preventDefault()
+        goSearchPage(searchInput.value.trim())
+    }
+})
+searchButton?.addEventListener('click',()=>{
+    goSearchPage(searchInput.value.trim())
+})
 document.addEventListener('click',(e)=>{
     if(!searchInput.contains(e.target) && !searchRes.contains(e.target)){
         searchRes.style.display = 'none';
@@ -63,6 +73,12 @@ document.addEventListener('click',(e)=>{
 function goWatchPage(slug){
     window.location.href = `../Watch_movie_page/index.html?slug=${slug}`
 
+}
+function goSearchPage(keyword){
+    if(!keyword){
+        return
+    }
+    window.location.href = `../Search_page/index.html?keyword=${encodeURIComponent(keyword)}`
 }
 const seasonsSection = document.querySelector('.seasons-section')
 const renderPage = async(slug)=>{
