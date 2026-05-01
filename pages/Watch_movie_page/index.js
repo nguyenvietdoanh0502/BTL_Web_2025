@@ -149,21 +149,11 @@ function renderVideo(chapter,index){
         video.innerHTML = `<iframe
                             width="100%"
                             height="100%"
-                            src ="https://www.youtube.com/embed/B7kAvXTlsi4?autoplay=1&mute=1"
-                            frameborder="0"
-                            allow=" encrypted-media; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>`
-        setTimeout(() =>{
-                video.innerHTML = `<iframe
-                            width="100%"
-                            height="100%"
                             src ="${src}"
                             frameborder="0"
                             allow="autoplay; encrypted-media; picture-in-picture; web-share"
                             allowfullscreen>
                         </iframe>`
-        }, 5000);
     }
     window.scrollTo({
       top: 0,
